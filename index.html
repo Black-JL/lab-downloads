@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab Downloads</title>
+<meta name="description" content="Download the three files for the AI Skills Lab: position description, patient satisfaction data, and MEDLOG supply chain data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1f3a5f;
+    --navy-dark: #15294a;
+    --navy-light: #345a8a;
+    --accent: #d8901c;
+    --bg: #fdfdfc;
+    --text: #1a1a1a;
+    --muted: #5a5a5a;
+    --border: #d8dde5;
+    --hint-bg: #f5f8fc;
+    --warm-bg: #fffaee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--navy); text-decoration: none; }
+  a:hover { color: var(--navy-light); text-decoration: underline; }
+
+  .site-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 1.5rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 50%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .site-header .container { max-width: 820px; margin: 0 auto; position: relative; }
+  .eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .site-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 600;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .site-header .subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  section {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+  section h2 {
+    font-family: 'Crimson Pro', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+  }
+  section h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  section p { margin-bottom: 0.75rem; font-size: 1rem; }
+  section ul, section ol { margin-left: 1.4rem; margin-bottom: 0.75rem; }
+
+  .downloads {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    gap: 0.9rem;
+    margin-top: 1rem;
+  }
+  .dl-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    background: #fff;
+  }
+  .dl-card:hover {
+    border-color: var(--navy);
+    box-shadow: 0 4px 14px rgba(31, 58, 95, 0.08);
+    text-decoration: none;
+    color: var(--text);
+  }
+  .dl-card .pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    margin-bottom: 0.4rem;
+    background: #e3ebf5;
+    color: var(--navy);
+  }
+  .dl-card .name {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .dl-card .desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .dl-card .arrow {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  footer.site-footer {
+    background: #f7f8fa;
+    padding: 1.5rem 1.25rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  footer.site-footer strong { color: var(--navy); }
+  /* ===== QR scan panel (shown on the projection screen) ===== */
+  .qr-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, #f7f8fa 0%, #fcfcfd 100%);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .qr-panel .qr-image {
+    flex: 0 0 auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 6px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+  .qr-panel .qr-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .qr-panel .qr-text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .qr-panel .qr-text .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+  .qr-panel .qr-text h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+    line-height: 1.15;
+  }
+  .qr-panel .qr-text .body {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  .qr-panel .qr-text .url {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--navy);
+    word-break: break-all;
+    background: #fff;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* Already on a device? Hide the QR — they don't need it. */
+  @media (max-width: 700px) {
+    .qr-panel { display: none; }
+  }
+
+  .warning {
+    background: #fdf3f3;
+    border-left: 4px solid #b03a3a;
+    padding: 0.8rem 1rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .warning .label {
+    font-weight: 700;
+    color: #8a2a2a;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-right: 0.3rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="eyebrow">AI Skills Lab — Downloads</div>
+    <h1>Lab Files</h1>
+    <div class="subtitle">Three files for today's exercises. Click to download.</div>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="qr-panel" aria-label="Scan to open this site on your own device">
+  <a href="qr-code.png" class="qr-image" target="_blank" rel="noopener">
+    <img src="qr-code.png" alt="QR code linking to this site">
+  </a>
+  <div class="qr-text">
+    <h2>Open this on your own device</h2>
+    <span class="url">https://black-jl.github.io/lab-downloads/</span>
+  </div>
+</div>
+
+<section id="downloads">
+  <h2>Downloads</h2>
+  <div class="downloads">
+    <a href="files/aspen-pass-pd-0671.pdf" class="dl-card" download>
+      <span class="pill">PDF</span>
+      <div class="name">Aspen Pass Position Description</div>
+      <div class="desc">Supervisory Health System Specialist, GS-0671-13. Fictional training PD. 130 KB.</div>
+      <div class="arrow">Download →</div>
+    </a>
+    <a href="files/patient-satisfaction-data.xlsx" class="dl-card" download>
+      <span class="pill">Dataset</span>
+      <div class="name">Patient Satisfaction Data</div>
+      <div class="desc">One year of notional JOES survey responses, Aspen Pass + comparable facilities. Excel, 5.2 MB.</div>
+      <div class="arrow">Download →</div>
+    </a>
+    <a href="files/medlog-supply-chain-data.xlsx" class="dl-card" download>
+      <span class="pill">Dataset</span>
+      <div class="name">MEDLOG Supply Chain Data</div>
+      <div class="desc">14 tabs, one per customer, ~12 months of supply line items. Excel, 830 KB.</div>
+      <div class="arrow">Download →</div>
+    </a>
+  </div>
+
+  <div class="warning">
+    <span class="label">Heads up</span>
+    All data here is <strong>notional</strong> and made up for training. Never upload real patient data, PHI, or sensitive operational data to a public AI tool.
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <div>All scenario data is <strong>fictionalized</strong> for instructional purposes only.</div>
+  <div style="margin-top: 0.4rem;">Fundamentals of Applied Artificial Intelligence in Health Care</div>
+</footer>
+
+</body>
+</html>
