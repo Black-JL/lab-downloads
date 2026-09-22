@@ -178,8 +178,8 @@
   }
   .qr-panel .qr-image {
     flex: 0 0 auto;
-    width: 140px;
-    height: 140px;
+    width: 230px;
+    height: 230px;
     border-radius: 6px;
     background: #fff;
     padding: 6px;
@@ -205,7 +205,7 @@
   }
   .qr-panel .qr-text h2 {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     font-weight: 600;
     color: var(--navy);
     margin-bottom: 0.3rem;
@@ -219,11 +219,12 @@
   }
   .qr-panel .qr-text .url {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
+    font-size: clamp(0.95rem, 1.9vw, 1.3rem);
+    white-space: nowrap;
+    font-weight: 500;
     color: var(--navy);
-    word-break: break-all;
     background: #fff;
-    padding: 0.3rem 0.55rem;
+    padding: 0.5rem 0.8rem;
     border: 1px solid var(--border);
     border-radius: 4px;
     display: inline-block;
@@ -269,8 +270,9 @@
     <img src="qr-code.png" alt="QR code linking to this site">
   </a>
   <div class="qr-text">
-    <h2>Open this on your own device</h2>
-    <span class="url">https://black-jl.github.io/lab-downloads/</span>
+    <div class="label">Get the files</div>
+    <h2>Scan the code, or type this address:</h2>
+    <a class="url" href="https://black-jl.github.io/lab-downloads/">black-jl.github.io/lab-downloads</a>
   </div>
 </div>
 
